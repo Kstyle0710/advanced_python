@@ -50,13 +50,26 @@ def main():
             # 스케쥴링 확인
             print('Scheduled for {} : {}'.format(work, future))
             print()
-        result = wait(futures_list, timeout=5)  ### 기다리는 시간 지정 가능
-        # 성공 출력
-        print('Completed Task : ' + str(result.done))
-        # 실패 출력
-        print('Failure Tast : ' + str(result.not_done))
-        # 결과값 출력
-        print([future.result() for future in result.done])
+
+        # ## Wait 결과 출력
+        # result = wait(futures_list, timeout=5)  ### 기다리는 시간 지정 가능
+        # # 성공 출력
+        # print('Completed Task : ' + str(result.done))
+        # # 실패 출력
+        # print('Failure Tast : ' + str(result.not_done))
+        # # 결과값 출력
+        # print([future.result() for future in result.done])
+
+        ## as_completed 결과 출력
+        for future in as_completed(futures_list):   ## 먼저 처리되는게 먼저 결과로 반환된다.
+            result = future.result()
+            done = future.done()
+            cancelled = future.cancelled()
+
+            # future 결과 확인
+            print('Future Result : {}, Done : {}'.format(result, done))
+            print('Future Cancelled : {}'.format(cancelled))
+
 
     # 종료후 걸린 시간
     ed_time = time.time() - st_time
@@ -64,7 +77,6 @@ def main():
     msg = '\n Time : {:.2f}s'
     # 최종 결과 출력
     print(msg.format(ed_time))
-
 
 ## 실행
 if __name__ == '__main__':
