@@ -17,7 +17,7 @@ GIL (global interpreter lock)
 '''
 
 ## 2가지 패턴 실습
-### concurrent.futures 사용법1
+### concurrent.futures 사용법1 : map (본 파일 작성 부분)
 ### concurrent.futures 사용법2
 
 import os
@@ -41,7 +41,7 @@ def main():
     # ProcessPoolExcutor
     with futures.ThreadPoolExecutor() as excutor:
         result = excutor.map(sum_generator, WORK_LIST)
-
+        ## map 함수는 work 대상중에 한시간 짜리가 있으면 한시간 기다렸다가 모두의 결과를 반환 (그래서 다음 수업의 wait 개념 필요)
     # 종료후 걸린 시간
     ed_time = time.time()-st_time
     # 출력포맷
