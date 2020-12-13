@@ -90,10 +90,10 @@ def generator2():
     yield from range(1, 3)
 
 t3 = generator2()
-# print(next(t3))
-# print(next(t3))
-# print(next(t3))
-# print(next(t3))
+print(next(t3))
+print(next(t3))
+print(next(t3))
+print(next(t3))
 
 
 
