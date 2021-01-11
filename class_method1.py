@@ -16,6 +16,7 @@ car2 = Car("GM", {'color':'Red', 'horsepower':300, 'price':450})
 car3 = Car("Ford", {'color':'Silver', 'horsepower':350, 'price':480})
 
 print(car1)
-print(car1.__dict__)
+print(car1.__dict__)  ## 클래스 안의 속성 정보를 확인할 때 사용
+print(dir(car1))     ## 클래스 안의 모든 메타 정보를 확인
 
 

@@ -41,19 +41,19 @@ print(car1._company == car2._company)
 print(car1 is car2)
 
 # dir & __dict__ 확인
-print(dir(car1))
+print(dir(car1))   ## 내장되어 있는 매직 메소드 확인
 print(car1)
-print(car1.__dict__)
+print(car1.__dict__)   ## 내가 만든 네임스페이스만 보고 싶다면...
 
 # Doctring
-print(Car.__doc__)
+print(Car.__doc__)    # 클래스 설명 주석 출력
 
 # detail info 메소드 실행
 car2.detail_info()
 
 # 비교
 print(car1.__class__, car2.__class__)    ## 인스턴스의 모체가 되는 클레스 확인.. 전부 동일 값 출력
-print(id(car1.__class__), id(car2.__class__), id(car3.__class__))  # 모체의 아이디이므로 전부 동일 값 출력
+print(id(car1.__class__), id(car2.__class__), id(car3.__class__))  # 모체 클래스의 아이디이므로 전부 동일 값 출력
 
 # 클래스 이름으로 인스턴스 접근하기
 Car.detail_info(car3)
@@ -62,7 +62,7 @@ Car.detail_info(car3)
 print("모체 클래스를 통한 car 인스턴수의 개수 확인 : {}". format(Car.car_count))
 print("개별 인스턴스를 통한 car 인스턴수의 개수 확인 : {}". format(car1.car_count))
 print("개별 인스턴스를 통한 car 인스턴수의 개수 확인 : {}". format(car2.car_count))
-## 클래스 변소는 각 인스턴스가 모두 공유하기 때문에 위의 값들은 모두 동일하게 나온다.
+## 클래스 변수는 클래스 본체와 각 인스턴스가 모두 공유하기 때문에 위의 값들은 모두 동일하게 나온다.
 
 # 인스턴스 1개 삭제후 결과 보기
 del car2

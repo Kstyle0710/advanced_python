@@ -7,7 +7,7 @@ class Car():
     '''
 
     # 클래스 변수 선언 (모든 인스턴스가 공유 _ 모든 인스턴스가 공통적으로 참조하는 변수는 클래스 변수로 선언)
-    price_per_rate = 1.0   ## 예컨데, 자동차에 적용되는 가격 인상율
+    price_per_rate = 1.0   ## 예컨데, 자동차에 적용되는 관세율
 
     def __init__(self, company, details):
         self._company = company
@@ -41,7 +41,7 @@ class Car():
             print('Please Enter 1 or More')
             return
         cls.price_per_rate = per
-        print('Succeed! priced increased')
+        print('Succeed! price increased')
 
     # Static Method  (스태틱 변수는 따로 없다.)
     @staticmethod
