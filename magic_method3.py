@@ -32,9 +32,9 @@ l_leng2 = sqrt((pt3.x-pt4.x)**2 + (pt3.y-pt4.y)**2)
 print(l_leng2)
 
 # 네임드 튜플 선언 방법
-Point1 = namedtuple('Point', ['x', 'y'])
-Point2 = namedtuple('Point', 'x, y')
-Point3 = namedtuple('Point', 'x y x class', rename=True)
+Point1 = namedtuple('Point1', ['x', 'y'])
+Point2 = namedtuple('Point2', 'x, y')
+Point3 = namedtuple('Point3', 'x y x class', rename=True)
 print(Point1)
 print(Point2)
 print(Point3)
@@ -51,7 +51,7 @@ print(p3)
 
 # Dict to Unpacking
 temp_dict = {'x':75, 'y':55}
-p5 = Point2(**temp_dict)
+p5 = Point2(**temp_dict)   # 딕셔너리 쌍별**은 언패킹.. 튜플은 홑별*
 print(p5)
 
 # unpacking
@@ -61,15 +61,16 @@ print(a, b)
 # named tuple method
 ## list ==> named tuple
 temp_list = [52, 38]
-p4 = Point1._make(temp_list)  #_make() 새로운 객체 생성
+p4 = Point1._make(temp_list)  #_make() 리스트를 네임드튜플에 맞게 언팩킹 (위에 딕셔너리 언팩킹은 쌍별이었다.)
 print(p4)
+
 ## _fields : 필드 네임 확인 (키 값 조회시 활용)
 print(p1._fields)
 
-## _asdict : Orderred Dict 반환
+## _asdict : 네임드튜플을 Orderred Dict으로 반환
 print(p1._asdict())
 
-# 실 사용 실습
+# Named Tuple 실 사용 실습
 ## 반 20명, 4개의 반 (A, B, C, D)
 
 Classes = namedtuple('Classes', ['rank', 'number'])

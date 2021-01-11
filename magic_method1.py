@@ -48,17 +48,3 @@ print(s2)
 print(Fruit.__add__(s1, s2))
 print(s1 + s2)
 print(s1 - s2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
