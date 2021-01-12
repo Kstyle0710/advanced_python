@@ -20,9 +20,8 @@ print(d, id(d))
 # print(d_frozen, id(d_frozen))  # 수정 불가하여 에러 발생
 
 ## Set
-
 s1 ={'Apple', 'Orange', 'Apple', 'Kiwi'}
-s2 = (['Apple', 'Orange', 'Apple', 'Kiwi'])
+s2 = set(['Apple', 'Orange', 'Apple', 'Kiwi'])
 s3 = {3}
 s4 = set()   # not {}
 s5 = frozenset(s1)   # Read Only 처리
