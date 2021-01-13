@@ -47,7 +47,7 @@ def closure_ex3():
     cnt = 0
     total = 0
     def averager(v):
-        nonlocal  cnt, total    # 상기 에러 함수에서 여기 추가
+        nonlocal cnt, total    # 상기 에러 함수에서 여기 추가
         cnt += 1
         total += v
         return total / cnt

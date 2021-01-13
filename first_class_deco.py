@@ -10,6 +10,9 @@
 3. 디버깅 불편
 '''
 
+
+
+## 데코레이터 미사용시
 import time
 
 def perf_clock(func):

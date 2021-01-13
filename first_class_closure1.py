@@ -2,21 +2,21 @@
 
 ## 파이썬의 변수 범위(Scope)
 
-### ex1
+print("### ex1")
 def func_v1(a):
     print(a)
     print(b)
 
 # func_v1(10) # 에러 발생
 
-### ex2
+print("### ex2")
 b = 20  # global
 def func_v2(a):
     print(a)
     print(b)
 func_v2(10) # 정상 출력
 
-### ex3
+print("### ex3")
 c = 30
 def func_v3(a):
     print(a)
@@ -24,7 +24,7 @@ def func_v3(a):
     c = 40
 # func_v3(10) # 에러 발생
 
-### ex4
+print("### ex4")
 c = 30
 def func_v4(a):
     c = 40
@@ -33,7 +33,7 @@ def func_v4(a):
 
 func_v4(10) # 정상 출력 (c=40)
 
-### ex5
+print("### ex5")### ex5
 c = 30
 def func_v5(a):
     c = 40
@@ -43,7 +43,7 @@ def func_v5(a):
 print('>>', c)   # global에 있는 30이 출력
 func_v5(10) # 정상 출력 (c=40)
 
-### ex6
+print("### ex6")
 c = 30
 def func_v6(a):
     global c
@@ -51,11 +51,11 @@ def func_v6(a):
     print(c)
     c = 40
 
-print('>>', c)   # global에 있는 30이 출력
+print("### ex6")  # global에 있는 30이 출력
 func_v6(10) # 정상 출력 (c=40)
 print('>>>', c)  # 함수 실행후 c 값은 40
 
-
+print("-"*20)
 ## Closure 사용 이유
 '''
 서버 프로그램의 가장 중요 이슈 -> 동시성 제어 -> 제한된 메모리에 여러 자원이 접근 -> 교착 상태
