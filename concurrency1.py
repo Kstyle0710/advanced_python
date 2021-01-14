@@ -1,6 +1,6 @@
 '''
 병행성(Concurrency)
-Iterator, Generator
+Iterator(반복 가능한 객체), Generator(반복 가능한 객체를 생성)
 
 파이썬에서 반복 가능한 타입
 : collections, text, list, dict, set, tuple, unpacking, *args...
@@ -50,11 +50,12 @@ print(next(wi))
 print(next(wi))
 print(next(wi))
 print(next(wi))
-# print(next(wi))
+# print(next(wi))   # stopiteration 예외 발생
 
 print("-"*30)
 
 ## Generator를 활용한 방법
+### - 단위 실행 가능한 고루틴 구현과 연동 가능, 작은 메모리 조각 사용
 
 class WordSplitGenerator():
     def __init__(self, text):
@@ -62,8 +63,8 @@ class WordSplitGenerator():
 
     def __iter__(self):
         for word in self._text:
-            yield word   ## 중요한 부분
-        return
+            yield word   ## 중요한 부분 (인덱스 값을 따로 만들지 않아도 알아서 위치 정보를 기억한다.)
+        return     # 없어도 되나 명시적으로 표현하기 위해...
 
         def __repr__(self):
             return 'WordSplitGenerator({})'.format(self._text)
