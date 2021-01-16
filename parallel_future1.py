@@ -13,7 +13,7 @@ GIL (global interpreter lock)
  두개 이상의 스레드가 동시에 실행될 때 하나의 자원을 동시에 액세스하는 경우 -> 문제 방지하기 위해 
  GIL  실행, 리소스 전체에 락이 걸린다. -> context switch (문맥교환) 
  
- GIL 우회 : 멀티프로세싱 사용, Cpython 사용
+ GIL 우회 : 멀티프로세싱 사용, Cpython 사용 (대신 동기화 처리 코딩을 따로 해줘야 한다.)
 '''
 
 ## 2가지 패턴 실습
@@ -38,7 +38,7 @@ def main():
     # 시작 시간
     st_time = time.time()
     # 결과건수
-    # ProcessPoolExcutor
+    # ProcessPoolExecutor or ThreadPoolExecutor
     with futures.ThreadPoolExecutor() as excutor:
         result = excutor.map(sum_generator, WORK_LIST)
         ## map 함수는 work 대상중에 한시간 짜리가 있으면 한시간 기다렸다가 모두의 결과를 반환 (그래서 다음 수업의 wait 개념 필요)

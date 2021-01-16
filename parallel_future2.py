@@ -17,7 +17,7 @@ GIL (global interpreter lock)
 
 ## 2가지 패턴 실습
 ### concurrent.futures 사용법1  : map
-### concurrent.futures 사용법2  : wait , as_completed (본 파일 작성 부분)
+### concurrent.futures 사용법2  : wait , as_completed (본 파일 작성 부분)  ☆☆☆☆☆☆☆☆
 
 import os
 import time
@@ -43,7 +43,7 @@ def main():
     # ProcessPoolExecutor  or ThreadPoolExecutor
     with ProcessPoolExecutor() as excutor:
         for work in WORK_LIST:
-            # not 실행 but Future만 반환
+            # not 실행 but Future(미래에 할 일)만 반환
             future = excutor.submit(sum_generator, work)
             # 스케쥴링
             futures_list.append(future)
@@ -51,8 +51,9 @@ def main():
             print('Scheduled for {} : {}'.format(work, future))
             print()
 
-        # ## Wait 결과 출력
-        # result = wait(futures_list, timeout=5)  ### 기다리는 시간 지정 가능
+        # ## Wait 결과 출력 (시간제어 가능)
+        # r
+        esult = wait(futures_list, timeout=5)  ### 기다리는 시간 지정 가능
         # # 성공 출력
         # print('Completed Task : ' + str(result.done))
         # # 실패 출력
@@ -60,7 +61,7 @@ def main():
         # # 결과값 출력
         # print([future.result() for future in result.done])
 
-        ## as_completed 결과 출력
+        ## as_completed 결과 출력 (그냥 먼저 끝나는대로 반환)
         for future in as_completed(futures_list):   ## 먼저 처리되는게 먼저 결과로 반환된다.
             result = future.result()
             done = future.done()

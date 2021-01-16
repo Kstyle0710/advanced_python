@@ -55,7 +55,7 @@ print(next(wi))
 print("-"*30)
 
 ## Generator를 활용한 방법
-### - 단위 실행 가능한 고루틴 구현과 연동 가능, 작은 메모리 조각 사용
+### - 단위 실행 가능한 코루틴 구현과 연동 가능, 작은 메모리 조각 사용
 
 class WordSplitGenerator():
     def __init__(self, text):
